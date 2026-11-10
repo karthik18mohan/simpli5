@@ -1,108 +1,120 @@
 import React from 'react';
-import { Target, Eye, Heart, Award } from 'lucide-react';
+import { Layers, Compass, Leaf, Monitor } from 'lucide-react';
+
+const skills = [
+  { group: 'Design & Drawing', items: ['AutoCAD', 'Revit', 'Rhino', 'SketchUp'] },
+  { group: '3D & Visualisation', items: ['3ds Max', 'Lumion', 'Enscape', 'V-Ray'] },
+  { group: 'Creative Suite', items: ['Photoshop', 'Illustrator', 'InDesign'] },
+  { group: 'Languages', items: ['English', 'Hindi', 'Kannada'] },
+];
+
+const values = [
+  {
+    icon: Compass,
+    title: 'Site-Responsive Design',
+    description: 'Every project begins with understanding the land — its orientation, climate, and existing ecology. Good architecture grows from its place.',
+  },
+  {
+    icon: Leaf,
+    title: 'Sustainable Practice',
+    description: 'Passive cooling, rainwater harvesting, natural materials, and low-energy strategies are built into the design process, not added as afterthoughts.',
+  },
+  {
+    icon: Layers,
+    title: 'Layered Thinking',
+    description: 'Architecture operates at multiple scales simultaneously — from urban context to material detail. Each layer matters and each decision is considered.',
+  },
+  {
+    icon: Monitor,
+    title: 'Visual Precision',
+    description: 'Technical accuracy and design intent come together through rigorous drawing, 3D modelling, and photo-realistic visualisation.',
+  },
+];
 
 const About: React.FC = () => {
-  const values = [
-    {
-      icon: Target,
-      title: 'Our Mission',
-      description: 'To create innovative and sustainable design solutions that transform spaces and enhance lives through thoughtful, functional, and beautiful design.'
-    },
-    {
-      icon: Eye,
-      title: 'Our Vision',
-      description: 'To be the leading design studio recognized for excellence, creativity, and our commitment to sustainable and human-centered design practices.'
-    },
-    {
-      icon: Heart,
-      title: 'Our Values',
-      description: 'Integrity, creativity, sustainability, and collaboration guide every project. We believe great design should be accessible, functional, and environmentally responsible.'
-    },
-    {
-      icon: Award,
-      title: 'Our Excellence',
-      description: 'With over a decade of experience and numerous awards, we consistently deliver exceptional results that exceed client expectations and industry standards.'
-    }
-  ];
-
   return (
     <div className="pt-16">
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-              About <span className="text-blue-600">Simpli5</span> Design Studio
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Founded on the principle that great design can transform not just spaces, 
-              but lives, we are passionate creators dedicated to bringing your vision to life.
-            </p>
-          </div>
+      {/* Hero */}
+      <section className="py-20 bg-stone-900 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-15">
+          <img src="/images/1/2.png" alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-stone-900/90" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+          <p className="text-gold-400 text-xs tracking-[0.25em] uppercase font-medium mb-4">The Studio</p>
+          <h1 className="font-serif text-4xl sm:text-5xl font-semibold text-white mb-4 leading-tight">
+            About <span className="italic text-gold-400">Simpli5</span>
+          </h1>
+          <p className="text-stone-400 max-w-2xl leading-relaxed">
+            A Mysuru-based architecture and design practice with a focus on
+            thoughtful, sustainable, and human-centred spaces.
+          </p>
         </div>
       </section>
 
-      {/* Story Section */}
+      {/* Founder */}
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
-              <div className="space-y-6 text-gray-600 leading-relaxed">
+              <p className="text-gold-500 text-xs tracking-[0.2em] uppercase font-medium mb-3">Founder</p>
+              <h2 className="font-serif text-3xl font-semibold text-stone-900 mb-1">Ila Sirish</h2>
+              <p className="text-stone-500 text-sm mb-6">B.Arch, University of Mysore (2024) · Mysuru, Karnataka</p>
+              <div className="space-y-4 text-stone-600 leading-relaxed text-sm">
                 <p>
-                  Established in 2014, Simpli5 Design Studio began as a small team of passionate 
-                  designers with a shared vision: to create spaces that not only look beautiful 
-                  but truly enhance the way people live, work, and interact.
+                  Ila Sirish is an architect and designer based in Mysuru, Karnataka. She holds a
+                  Bachelor of Architecture from the University of Mysore (Class of 2024), where her
+                  work consistently explored the relationship between built form, nature, and community.
                 </p>
                 <p>
-                  Over the years, we've grown into a full-service design studio, but we've never 
-                  lost sight of what makes us unique – our commitment to understanding each client's 
-                  individual needs and translating them into spaces that reflect their personality 
-                  and lifestyle.
+                  Her graduate portfolio spans three distinct typologies — a sustainable residential
+                  township, a two-level spa interior, and a fine art campus — demonstrating range
+                  across scale, programme, and design approach.
                 </p>
                 <p>
-                  Today, we're proud to have completed over 150 projects, from intimate residential 
-                  spaces to large commercial developments. Each project is a testament to our belief 
-                  that thoughtful design has the power to transform lives and communities.
+                  Simpli5 was founded with the belief that well-designed spaces — regardless of
+                  budget or scale — have the power to improve how people live, work, and connect.
+                  The practice prioritises site-responsive, climate-sensitive design that is rooted
+                  in its local context.
                 </p>
               </div>
             </div>
             <div className="relative">
-              <img
-                src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt="Design team working on blueprints"
-                className="rounded-xl shadow-lg w-full h-96 object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl"></div>
+              <div className="aspect-[4/5] rounded-lg overflow-hidden bg-stone-100">
+                <img
+                  src="/images/3/1.png"
+                  alt="Fine Art Campus — Simpli5 Design Studio"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-5 -right-5 bg-stone-900 text-white p-5 rounded-lg shadow-xl">
+                <p className="font-serif text-2xl font-bold text-gold-400">2024</p>
+                <p className="text-xs text-stone-400 uppercase tracking-widest mt-0.5">Graduate</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Values Grid */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">What Drives Us</h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Our core values and principles that guide every project and decision we make.
-            </p>
+      {/* Values */}
+      <section className="py-20 bg-stone-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <p className="text-gold-500 text-xs tracking-[0.2em] uppercase font-medium mb-3">Philosophy</p>
+            <h2 className="font-serif text-3xl font-semibold text-stone-900">What drives the work</h2>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {values.map((value, index) => {
-              const Icon = value.icon;
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {values.map((v, i) => {
+              const Icon = v.icon;
               return (
-                <div key={index} className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0">
-                      <div className="p-3 bg-blue-100 rounded-lg">
-                        <Icon className="h-6 w-6 text-blue-600" />
-                      </div>
+                <div key={i} className="bg-white p-8 rounded-lg border border-stone-100 hover:border-gold-300 hover:shadow-md transition-all duration-300">
+                  <div className="flex items-start gap-4">
+                    <div className="p-2.5 bg-stone-100 rounded-lg flex-shrink-0">
+                      <Icon className="h-5 w-5 text-gold-600" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-3">{value.title}</h3>
-                      <p className="text-gray-600 leading-relaxed">{value.description}</p>
+                      <h3 className="font-serif text-lg font-semibold text-stone-900 mb-2">{v.title}</h3>
+                      <p className="text-stone-600 text-sm leading-relaxed">{v.description}</p>
                     </div>
                   </div>
                 </div>
@@ -112,50 +124,51 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* Skills */}
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Meet Our Founder</h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Passionate leadership driving innovation in design and architecture.
-            </p>
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="mb-12">
+            <p className="text-gold-500 text-xs tracking-[0.2em] uppercase font-medium mb-3">Technical Skills</p>
+            <h2 className="font-serif text-3xl font-semibold text-stone-900">Tools of the trade</h2>
           </div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {skills.map((group, i) => (
+              <div key={i}>
+                <h3 className="text-xs font-semibold text-stone-400 uppercase tracking-widest mb-4">{group.group}</h3>
+                <ul className="space-y-2.5">
+                  {group.items.map((item, j) => (
+                    <li key={j} className="flex items-center gap-2 text-sm text-stone-700">
+                      <span className="w-1.5 h-1.5 rounded-full bg-gold-400 flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              <div className="order-2 md:order-1">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Sarah Johnson</h3>
-                <p className="text-blue-600 font-semibold mb-6">Founder & Principal Designer</p>
-                <div className="space-y-4 text-gray-600 leading-relaxed">
-                  <p>
-                    With over 15 years of experience in architecture and interior design, 
-                    Sarah founded Simpli5 with a vision to create spaces that truly serve 
-                    the people who inhabit them.
-                  </p>
-                  <p>
-                    A graduate of the Rhode Island School of Design, Sarah's work has been 
-                    featured in numerous design publications and has received recognition 
-                    from the American Institute of Architects.
-                  </p>
-                  <p>
-                    When she's not designing, Sarah enjoys traveling to discover new design 
-                    inspirations and spending time with her family in their own thoughtfully 
-                    designed home.
-                  </p>
-                </div>
+      {/* Process */}
+      <section className="py-20 bg-stone-900">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <p className="text-gold-400 text-xs tracking-[0.2em] uppercase font-medium mb-3">How we work</p>
+            <h2 className="font-serif text-3xl font-semibold text-white">The design process</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { step: '01', title: 'Brief & Site', description: 'Understanding your vision, the site, climate, and constraints.' },
+              { step: '02', title: 'Concept', description: 'Developing design principles, massing, and spatial strategy.' },
+              { step: '03', title: 'Development', description: 'Working drawings, material selection, and 3D visualisation.' },
+              { step: '04', title: 'Delivery', description: 'Construction documentation, coordination, and site review.' },
+            ].map((p, i) => (
+              <div key={i} className="border border-stone-700 rounded-lg p-6 hover:border-gold-500 transition-colors duration-300">
+                <span className="font-mono text-gold-400 text-sm font-medium">{p.step}</span>
+                <h3 className="font-serif text-lg font-semibold text-white mt-2 mb-3">{p.title}</h3>
+                <p className="text-stone-400 text-sm leading-relaxed">{p.description}</p>
               </div>
-              <div className="order-1 md:order-2">
-                <div className="relative">
-                  <img
-                    src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=500"
-                    alt="Sarah Johnson, Founder of Simpli5 Design Studio"
-                    className="rounded-xl shadow-lg w-full h-96 object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl"></div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>

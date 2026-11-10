@@ -11,19 +11,16 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 40);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navItems = [
     { name: 'Home', id: 'home' },
-    { name: 'About', id: 'about' },
-    { name: 'Services', id: 'services' },
     { name: 'Projects', id: 'projects' },
+    { name: 'Services', id: 'services' },
+    { name: 'About', id: 'about' },
     { name: 'Contact', id: 'contact' },
   ];
 
@@ -33,76 +30,73 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-white/90 backdrop-blur-md shadow-sm' 
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      isScrolled
+        ? 'bg-stone-900/95 backdrop-blur-md shadow-lg'
         : 'bg-transparent'
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <div 
-            className="flex-shrink-0 cursor-pointer"
+          <button
             onClick={() => handleNavClick('home')}
+            className="flex-shrink-0 group"
           >
-            <h1 className="text-2xl font-bold text-gray-900">
-              Simpli<span className="text-blue-600">5</span> Design
-            </h1>
-          </div>
+            <span className="font-serif text-xl font-semibold tracking-wide text-white">
+              Simpli<span className="text-gold-400">5</span>
+            </span>
+            <span className="text-xs text-stone-300 ml-1 font-light tracking-widest uppercase">
+              Design Studio
+            </span>
+          </button>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => handleNavClick(item.id)}
-                  className={`px-3 py-2 text-sm font-medium transition-colors duration-200 ${
-                    currentPage === item.id
-                      ? 'text-blue-600 border-b-2 border-blue-600'
-                      : 'text-gray-700 hover:text-blue-600'
-                  }`}
-                >
-                  {item.name}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Navigation */}
-        <div className={`md:hidden transition-all duration-300 ease-in-out ${
-          isMenuOpen 
-            ? 'max-h-64 opacity-100' 
-            : 'max-h-0 opacity-0 overflow-hidden'
-        }`}>
-          <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 backdrop-blur-sm rounded-lg mt-2 shadow-lg">
+          <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`block w-full text-left px-3 py-2 text-base font-medium transition-colors duration-200 rounded-md ${
+                className={`px-4 py-2 text-sm font-medium tracking-wide transition-all duration-200 rounded-sm ${
                   currentPage === item.id
-                    ? 'text-blue-600 bg-blue-50'
-                    : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                    ? 'text-gold-400 border-b border-gold-400'
+                    : 'text-stone-200 hover:text-white'
+                }`}
+              >
+                {item.name}
+              </button>
+            ))}
+            <button
+              onClick={() => handleNavClick('contact')}
+              className="ml-4 px-5 py-2 bg-gold-500 text-white text-sm font-medium tracking-wide hover:bg-gold-600 transition-colors duration-200 rounded-sm"
+            >
+              Enquire
+            </button>
+          </div>
+
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden p-2 text-stone-200 hover:text-white transition-colors"
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
+
+        {isMenuOpen && (
+          <div className="md:hidden bg-stone-900/98 backdrop-blur-md border-t border-stone-700 pb-4">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => handleNavClick(item.id)}
+                className={`block w-full text-left px-6 py-3 text-sm font-medium transition-colors ${
+                  currentPage === item.id
+                    ? 'text-gold-400 bg-stone-800/50'
+                    : 'text-stone-200 hover:text-white hover:bg-stone-800/30'
                 }`}
               >
                 {item.name}
               </button>
             ))}
           </div>
-        </div>
+        )}
       </div>
     </nav>
   );

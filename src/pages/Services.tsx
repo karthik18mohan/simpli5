@@ -1,99 +1,81 @@
 import React from 'react';
-import { Home, Building2, Trees, MessageSquare, Ruler, Palette, Lightbulb, Settings } from 'lucide-react';
+import { Building2, Sofa, Cuboid, Leaf, Ruler, FileText, Lightbulb, PenTool } from 'lucide-react';
+
+const mainServices = [
+  {
+    icon: Building2,
+    title: 'Architecture Design',
+    description: 'From residential townships to institutional campuses — full architectural services encompassing concept, design development, working drawings, and site coordination.',
+    features: ['Concept Design', 'Design Development', 'Working Drawings', 'Site Supervision'],
+  },
+  {
+    icon: Sofa,
+    title: 'Interior Design',
+    description: 'Spaces crafted for how people live and feel. Interior design services that consider materiality, light, and human experience — from spa interiors to residential spaces.',
+    features: ['Space Planning', 'Material & Finish Selection', 'Furniture Layout', 'Lighting Concept'],
+  },
+  {
+    icon: Cuboid,
+    title: '3D Visualisation',
+    description: 'Photo-realistic renders and walkthroughs using Lumion, Enscape, and 3ds Max — communicating design intent clearly to clients and stakeholders before anything is built.',
+    features: ['Revit Modelling', 'Lumion Renders', 'Enscape Walkthroughs', '3ds Max + V-Ray'],
+  },
+  {
+    icon: Leaf,
+    title: 'Sustainable Design',
+    description: 'Climate-responsive architecture that integrates passive cooling, daylighting, rainwater harvesting, and sustainable materials as core design principles — not add-ons.',
+    features: ['Passive Cooling Strategy', 'Rainwater Harvesting', 'Solar Orientation', 'Green Materials'],
+  },
+];
+
+const additionalServices = [
+  { icon: Ruler, title: 'Space Planning', description: 'Optimising layouts for function, flow, and experience.' },
+  { icon: FileText, title: 'Construction Documents', description: 'Detailed drawings and specifications for execution.' },
+  { icon: Lightbulb, title: 'Design Consultation', description: 'Expert guidance at any stage of your project.' },
+  { icon: PenTool, title: 'Concept Development', description: 'From brief to idea — structured creative exploration.' },
+];
 
 const Services: React.FC = () => {
-  const mainServices = [
-    {
-      icon: Home,
-      title: 'Residential Design',
-      description: 'Transform your home into a personalized sanctuary that reflects your lifestyle and enhances your daily living experience.',
-      features: ['Interior Design', 'Space Planning', 'Custom Furniture', 'Color Consultation']
-    },
-    {
-      icon: Building2,
-      title: 'Commercial Design',
-      description: 'Create inspiring work environments that boost productivity, reflect your brand, and leave lasting impressions on clients.',
-      features: ['Office Design', 'Retail Spaces', 'Restaurant Design', 'Brand Integration']
-    },
-    {
-      icon: Trees,
-      title: 'Landscape Design',
-      description: 'Design outdoor spaces that seamlessly blend with your architecture and create beautiful, functional environments.',
-      features: ['Garden Design', 'Hardscape Planning', 'Sustainable Solutions', 'Outdoor Living']
-    },
-    {
-      icon: MessageSquare,
-      title: 'Design Consultation',
-      description: 'Expert guidance and professional advice to help you make informed decisions about your design projects.',
-      features: ['Design Strategy', 'Material Selection', 'Budget Planning', 'Project Timeline']
-    }
-  ];
-
-  const additionalServices = [
-    {
-      icon: Ruler,
-      title: 'Space Planning',
-      description: 'Optimize your space for maximum functionality and flow.'
-    },
-    {
-      icon: Palette,
-      title: 'Color & Material Selection',
-      description: 'Expert guidance on colors, textures, and materials.'
-    },
-    {
-      icon: Lightbulb,
-      title: 'Lighting Design',
-      description: 'Create the perfect ambiance with professional lighting.'
-    },
-    {
-      icon: Settings,
-      title: 'Project Management',
-      description: 'End-to-end management of your design project.'
-    }
-  ];
-
   return (
     <div className="pt-16">
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-            Our <span className="text-blue-600">Services</span>
+      {/* Hero */}
+      <section className="py-20 bg-stone-900 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-15">
+          <img src="/images/2/2.png" alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-stone-900/90" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+          <p className="text-gold-400 text-xs tracking-[0.25em] uppercase font-medium mb-4">What we do</p>
+          <h1 className="font-serif text-4xl sm:text-5xl font-semibold text-white mb-4">
+            Our <span className="italic text-gold-400">Services</span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            From concept to completion, we offer comprehensive design services 
-            tailored to bring your vision to life with precision and creativity.
+          <p className="text-stone-400 max-w-2xl leading-relaxed">
+            Architecture, interior design, and visualisation services — from first sketch to final render.
           </p>
         </div>
       </section>
 
       {/* Main Services */}
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {mainServices.map((service, index) => {
               const Icon = service.icon;
               return (
-                <div key={index} className="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-shadow duration-300">
-                  <div className="flex items-start space-x-6">
-                    <div className="flex-shrink-0">
-                      <div className="p-4 bg-blue-100 rounded-xl">
-                        <Icon className="h-8 w-8 text-blue-600" />
-                      </div>
+                <div key={index} className="bg-stone-50 rounded-lg p-8 border border-stone-100 hover:border-gold-300 hover:shadow-md transition-all duration-300">
+                  <div className="flex items-start gap-5">
+                    <div className="p-3 bg-stone-900 rounded-lg flex-shrink-0">
+                      <Icon className="h-6 w-6 text-gold-400" />
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
-                      <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
-                      <div>
-                        <h4 className="font-semibold text-gray-900 mb-3">What's Included:</h4>
-                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                          {service.features.map((feature, featureIndex) => (
-                            <li key={featureIndex} className="text-gray-600 flex items-center">
-                              <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                              {feature}
-                            </li>
-                          ))}
-                        </ul>
+                    <div>
+                      <h3 className="font-serif text-xl font-semibold text-stone-900 mb-3">{service.title}</h3>
+                      <p className="text-stone-600 text-sm leading-relaxed mb-5">{service.description}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {service.features.map((f, fi) => (
+                          <span key={fi} className="text-xs bg-white border border-stone-200 text-stone-600 px-3 py-1 rounded-full">
+                            {f}
+                          </span>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -104,28 +86,23 @@ const Services: React.FC = () => {
         </div>
       </section>
 
-      {/* Additional Services */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Additional Services</h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Specialized services to complement your main design project and ensure every detail is perfect.
-            </p>
+      {/* Additional */}
+      <section className="py-16 bg-stone-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="mb-10">
+            <h2 className="font-serif text-2xl font-semibold text-stone-900">Additional Services</h2>
+            <p className="text-stone-500 text-sm mt-2">Specialist support for specific needs at any stage of your project.</p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {additionalServices.map((service, index) => {
               const Icon = service.icon;
               return (
-                <div key={index} className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 text-center">
-                  <div className="flex justify-center mb-4">
-                    <div className="p-3 bg-blue-100 rounded-full">
-                      <Icon className="h-6 w-6 text-blue-600" />
-                    </div>
+                <div key={index} className="bg-white p-6 rounded-lg border border-stone-200 hover:border-gold-400 transition-colors duration-200">
+                  <div className="p-2 bg-stone-100 rounded-lg w-fit mb-4">
+                    <Icon className="h-5 w-5 text-gold-600" />
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">{service.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
+                  <h3 className="font-semibold text-stone-900 mb-2 text-sm">{service.title}</h3>
+                  <p className="text-stone-500 text-xs leading-relaxed">{service.description}</p>
                 </div>
               );
             })}
@@ -133,29 +110,26 @@ const Services: React.FC = () => {
         </div>
       </section>
 
-      {/* Process Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Design Process</h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              A structured approach that ensures exceptional results from initial consultation to final reveal.
-            </p>
+      {/* Process */}
+      <section className="py-20 bg-stone-900">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <p className="text-gold-400 text-xs tracking-[0.2em] uppercase font-medium mb-3">Process</p>
+            <h2 className="font-serif text-3xl font-semibold text-white">How a project unfolds</h2>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { step: '01', title: 'Consultation', description: 'Understanding your vision, needs, and budget' },
-              { step: '02', title: 'Concept', description: 'Creating initial designs and mood boards' },
-              { step: '03', title: 'Development', description: 'Refining details and finalizing specifications' },
-              { step: '04', title: 'Implementation', description: 'Managing execution and final installation' }
-            ].map((process, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">
-                  {process.step}
+              { step: '01', title: 'Consultation', description: 'We understand your brief, timeline, and budget — asking the right questions from the start.' },
+              { step: '02', title: 'Concept', description: 'Sketch design, massing, spatial strategy, and initial mood boards for your approval.' },
+              { step: '03', title: 'Development', description: 'Detailed design, 3D visualisation, working drawings, and material specifications.' },
+              { step: '04', title: 'Implementation', description: 'Construction documentation, contractor coordination, and site inspections.' },
+            ].map((p, i) => (
+              <div key={i} className="text-center">
+                <div className="w-12 h-12 bg-gold-500 text-white rounded-full flex items-center justify-center font-mono text-sm font-semibold mx-auto mb-4">
+                  {p.step}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{process.title}</h3>
-                <p className="text-gray-600">{process.description}</p>
+                <h3 className="font-serif text-lg font-semibold text-white mb-2">{p.title}</h3>
+                <p className="text-stone-400 text-sm leading-relaxed">{p.description}</p>
               </div>
             ))}
           </div>
